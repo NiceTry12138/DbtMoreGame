@@ -18,9 +18,9 @@
     <property name="geometry">
      <rect>
       <x>10</x>
-      <y>290</y>
-      <width>201</width>
-      <height>281</height>
+      <y>10</y>
+      <width>221</width>
+      <height>458</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="MainGameLayout">
@@ -46,7 +46,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="GameId">
+      <widget class="QLineEdit" name="GameClassesPath">
        <property name="minimumSize">
         <size>
          <width>60</width>
@@ -54,10 +54,26 @@
         </size>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
        <property name="placeholderText">
-        <string>GameID</string>
+        <string>代码文件夹路径</string>
+       </property>
+       <property name="cursorMoveStyle">
+        <enum>Qt::VisualMoveStyle</enum>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QLineEdit" name="GameResourcePath">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>资源文件夹路径</string>
        </property>
       </widget>
      </item>
@@ -70,7 +86,7 @@
         </size>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
        <property name="placeholderText">
         <string>拖入游戏目录</string>
@@ -78,7 +94,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QLineEdit" name="GamePerson">
+      <widget class="QLineEdit" name="GameAndroidPath">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -86,10 +102,36 @@
         </size>
        </property>
        <property name="alignment">
-        <set>Qt::AlignCenter</set>
+        <set>Qt::AlignLeading|Qt::AlignLeft|Qt::AlignVCenter</set>
        </property>
        <property name="placeholderText">
-        <string>填写维护人</string>
+        <string>拖入安卓工程路径</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton_2">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>查看选中多玩法</string>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QPushButton" name="pushButton">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>60</height>
+        </size>
+       </property>
+       <property name="text">
+        <string>生成选中多玩法</string>
        </property>
       </widget>
      </item>
@@ -99,9 +141,9 @@
     <property name="geometry">
      <rect>
       <x>240</x>
-      <y>20</y>
+      <y>10</y>
       <width>861</width>
-      <height>821</height>
+      <height>831</height>
      </rect>
     </property>
     <widget class="QWidget" name="horizontalLayoutWidget">
@@ -168,11 +210,83 @@
       <rect>
        <x>0</x>
        <y>60</y>
-       <width>861</width>
-       <height>761</height>
+       <width>860</width>
+       <height>771</height>
       </rect>
      </property>
     </widget>
+   </widget>
+   <widget class="QWidget" name="verticalLayoutWidget_2">
+    <property name="geometry">
+     <rect>
+      <x>10</x>
+      <y>470</y>
+      <width>221</width>
+      <height>371</height>
+     </rect>
+    </property>
+    <layout class="QVBoxLayout" name="verticalLayout">
+     <item>
+      <widget class="QLabel" name="label_2">
+       <property name="font">
+        <font>
+         <pointsize>20</pointsize>
+        </font>
+       </property>
+       <property name="text">
+        <string>当前选中玩法</string>
+       </property>
+       <property name="alignment">
+        <set>Qt::AlignCenter</set>
+       </property>
+      </widget>
+     </item>
+     <item>
+      <widget class="QFrame" name="ShowSelectLabel">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>330</height>
+        </size>
+       </property>
+       <property name="styleSheet">
+        <string notr="true">background-color:#ffffff;</string>
+       </property>
+       <property name="frameShape">
+        <enum>QFrame::StyledPanel</enum>
+       </property>
+       <property name="frameShadow">
+        <enum>QFrame::Raised</enum>
+       </property>
+       <widget class="QLabel" name="selecttInfosLabel">
+        <property name="geometry">
+         <rect>
+          <x>0</x>
+          <y>0</y>
+          <width>191</width>
+          <height>321</height>
+         </rect>
+        </property>
+        <property name="text">
+         <string/>
+        </property>
+       </widget>
+      </widget>
+     </item>
+    </layout>
+   </widget>
+   <widget class="QLabel" name="label_4">
+    <property name="geometry">
+     <rect>
+      <x>1010</x>
+      <y>820</y>
+      <width>101</width>
+      <height>51</height>
+     </rect>
+    </property>
+    <property name="text">
+     <string>Powered By 刘聪</string>
+    </property>
    </widget>
   </widget>
   <widget class="QMenuBar" name="menubar">
