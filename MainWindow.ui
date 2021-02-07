@@ -20,7 +20,7 @@
       <x>10</x>
       <y>10</y>
       <width>221</width>
-      <height>458</height>
+      <height>464</height>
      </rect>
     </property>
     <layout class="QVBoxLayout" name="MainGameLayout">
@@ -29,7 +29,7 @@
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>60</height>
+         <height>50</height>
         </size>
        </property>
        <property name="font">
@@ -49,8 +49,8 @@
       <widget class="QLineEdit" name="GameClassesPath">
        <property name="minimumSize">
         <size>
-         <width>60</width>
-         <height>60</height>
+         <width>0</width>
+         <height>50</height>
         </size>
        </property>
        <property name="alignment">
@@ -69,7 +69,7 @@
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>60</height>
+         <height>50</height>
         </size>
        </property>
        <property name="placeholderText">
@@ -78,11 +78,24 @@
       </widget>
      </item>
      <item>
+      <widget class="QLineEdit" name="GameMoreGameLayerPath">
+       <property name="minimumSize">
+        <size>
+         <width>0</width>
+         <height>50</height>
+        </size>
+       </property>
+       <property name="placeholderText">
+        <string>多玩法首页</string>
+       </property>
+      </widget>
+     </item>
+     <item>
       <widget class="QLineEdit" name="GamePath">
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>60</height>
+         <height>50</height>
         </size>
        </property>
        <property name="alignment">
@@ -98,7 +111,7 @@
        <property name="minimumSize">
         <size>
          <width>0</width>
-         <height>60</height>
+         <height>50</height>
         </size>
        </property>
        <property name="alignment">
@@ -242,7 +255,7 @@
       </widget>
      </item>
      <item>
-      <widget class="QFrame" name="ShowSelectLabel">
+      <widget class="QLabel" name="showSelectLabel">
        <property name="minimumSize">
         <size>
          <width>0</width>
@@ -250,27 +263,11 @@
         </size>
        </property>
        <property name="styleSheet">
-        <string notr="true">background-color:#ffffff;</string>
+        <string notr="true">background:white</string>
        </property>
-       <property name="frameShape">
-        <enum>QFrame::StyledPanel</enum>
+       <property name="text">
+        <string/>
        </property>
-       <property name="frameShadow">
-        <enum>QFrame::Raised</enum>
-       </property>
-       <widget class="QLabel" name="selecttInfosLabel">
-        <property name="geometry">
-         <rect>
-          <x>0</x>
-          <y>0</y>
-          <width>191</width>
-          <height>321</height>
-         </rect>
-        </property>
-        <property name="text">
-         <string/>
-        </property>
-       </widget>
       </widget>
      </item>
     </layout>

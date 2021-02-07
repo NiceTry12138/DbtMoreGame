@@ -16,14 +16,15 @@ from PyQt5.QtGui import *
 from PyQt5.QtWidgets import *
 import GameInfoWidget
 
-class Ui_MainWindow(QtWidgets.QMainWindow):
+
+class Ui_MainWindow(QWidget):
     def setupUi(self, MainWindow):
         MainWindow.setObjectName("MainWindow")
         MainWindow.resize(1126, 896)
         self.centralwidget = QtWidgets.QWidget(MainWindow)
         self.centralwidget.setObjectName("centralwidget")
         self.verticalLayoutWidget = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget.setGeometry(QtCore.QRect(20, 10, 201, 392))
+        self.verticalLayoutWidget.setGeometry(QtCore.QRect(10, 10, 221, 461))
         self.verticalLayoutWidget.setObjectName("verticalLayoutWidget")
         self.MainGameLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget)
         self.MainGameLayout.setContentsMargins(0, 0, 0, 0)
@@ -36,19 +37,30 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.MainGameInfo.setAlignment(QtCore.Qt.AlignCenter)
         self.MainGameInfo.setObjectName("MainGameInfo")
         self.MainGameLayout.addWidget(self.MainGameInfo)
-        self.GameId = DbtDropLineEdit("", self.verticalLayoutWidget)
-        self.GameId.setMinimumSize(QtCore.QSize(60, 60))
-        self.GameId.setAlignment(QtCore.Qt.AlignCenter)
-        self.GameId.setObjectName("GameId")
-        self.MainGameLayout.addWidget(self.GameId)
+        self.GameClassesPath = DbtDropLineEdit("", self.verticalLayoutWidget)
+        self.GameClassesPath.setMinimumSize(QtCore.QSize(0, 50))
+        self.GameClassesPath.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.GameClassesPath.setCursorMoveStyle(QtCore.Qt.VisualMoveStyle)
+        self.GameClassesPath.setObjectName("GameClassesPath")
+        self.MainGameLayout.addWidget(self.GameClassesPath)
+        self.GameResourcePath = DbtDropLineEdit("", self.verticalLayoutWidget)
+        self.GameResourcePath.setMinimumSize(QtCore.QSize(0, 50))
+        self.GameResourcePath.setObjectName("GameResourcePath")
+        self.MainGameLayout.addWidget(self.GameResourcePath)
+        self.GameMoreGameLayerPath = DbtDropLineEdit("", self.verticalLayoutWidget)
+        self.GameMoreGameLayerPath.setMinimumSize(QtCore.QSize(0, 50))
+        self.GameMoreGameLayerPath.setObjectName("GameMoreGameLayerPath")
+        self.MainGameLayout.addWidget(self.GameMoreGameLayerPath)
         self.GamePath = DbtDropLineEdit("", self.verticalLayoutWidget)
-        self.GamePath.setMinimumSize(QtCore.QSize(0, 60))
+        self.GamePath.setMinimumSize(QtCore.QSize(0, 50))
+        self.GamePath.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
         self.GamePath.setObjectName("GamePath")
         self.MainGameLayout.addWidget(self.GamePath)
-        self.GamePerson = DbtDropLineEdit("", self.verticalLayoutWidget)
-        self.GamePerson.setMinimumSize(QtCore.QSize(0, 60))
-        self.GamePerson.setObjectName("GamePerson")
-        self.MainGameLayout.addWidget(self.GamePerson)
+        self.GameAndroidPath = DbtDropLineEdit("", self.verticalLayoutWidget)
+        self.GameAndroidPath.setMinimumSize(QtCore.QSize(0, 50))
+        self.GameAndroidPath.setAlignment(QtCore.Qt.AlignLeading|QtCore.Qt.AlignLeft|QtCore.Qt.AlignVCenter)
+        self.GameAndroidPath.setObjectName("GameAndroidPath")
+        self.MainGameLayout.addWidget(self.GameAndroidPath)
         self.pushButton_2 = QtWidgets.QPushButton(self.verticalLayoutWidget)
         self.pushButton_2.setMinimumSize(QtCore.QSize(0, 60))
         self.pushButton_2.setObjectName("pushButton_2")
@@ -58,7 +70,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         self.pushButton.setObjectName("pushButton")
         self.MainGameLayout.addWidget(self.pushButton)
         self.MoreGameListWidget = QtWidgets.QWidget(self.centralwidget)
-        self.MoreGameListWidget.setGeometry(QtCore.QRect(240, 20, 861, 821))
+        self.MoreGameListWidget.setGeometry(QtCore.QRect(240, 10, 861, 831))
         self.MoreGameListWidget.setObjectName("MoreGameListWidget")
         self.horizontalLayoutWidget = QtWidgets.QWidget(self.MoreGameListWidget)
         self.horizontalLayoutWidget.setGeometry(QtCore.QRect(0, 0, 861, 61))
@@ -79,14 +91,32 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
         spacerItem1 = QtWidgets.QSpacerItem(40, 20, QtWidgets.QSizePolicy.Expanding, QtWidgets.QSizePolicy.Minimum)
         self.horizontalLayout.addItem(spacerItem1)
         self.MoreGameList = QtWidgets.QListView(self.MoreGameListWidget)
-        self.MoreGameList.setGeometry(QtCore.QRect(0, 60, 860, 760))
+        self.MoreGameList.setGeometry(QtCore.QRect(0, 60, 860, 771))
         self.MoreGameList.setObjectName("MoreGameList")
         self.verticalLayoutWidget_2 = QtWidgets.QWidget(self.centralwidget)
-        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(20, 410, 201, 431))
+        self.verticalLayoutWidget_2.setGeometry(QtCore.QRect(10, 470, 221, 371))
         self.verticalLayoutWidget_2.setObjectName("verticalLayoutWidget_2")
-        self.showInfosLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
-        self.showInfosLayout.setContentsMargins(0, 0, 0, 0)
-        self.showInfosLayout.setObjectName("showInfosLayout")
+        self.verticalLayout = QtWidgets.QVBoxLayout(self.verticalLayoutWidget_2)
+        self.verticalLayout.setContentsMargins(0, 0, 0, 0)
+        self.verticalLayout.setObjectName("verticalLayout")
+        self.label_2 = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        font = QtGui.QFont()
+        font.setPointSize(20)
+        self.label_2.setFont(font)
+        self.label_2.setAlignment(QtCore.Qt.AlignCenter)
+        self.label_2.setObjectName("label_2")
+        self.verticalLayout.addWidget(self.label_2)
+        self.showSelectLabel = QtWidgets.QLabel(self.verticalLayoutWidget_2)
+        self.showSelectLabel.setMinimumSize(QtCore.QSize(0, 330))
+        self.showSelectLabel.setStyleSheet("background:white")
+        self.showSelectLabel.setText("")
+        self.showSelectLabel.setObjectName("showSelectLabel")
+        font.setPointSize(12)
+        self.showSelectLabel.setFont(font)
+        self.verticalLayout.addWidget(self.showSelectLabel)
+        self.label_4 = QtWidgets.QLabel(self.centralwidget)
+        self.label_4.setGeometry(QtCore.QRect(1010, 820, 101, 51))
+        self.label_4.setObjectName("label_4")
         MainWindow.setCentralWidget(self.centralwidget)
         self.menubar = QtWidgets.QMenuBar(MainWindow)
         self.menubar.setGeometry(QtCore.QRect(0, 0, 1126, 23))
@@ -104,14 +134,18 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
     def retranslateUi(self, MainWindow):
         _translate = QtCore.QCoreApplication.translate
-        MainWindow.setWindowTitle(_translate("MainWindow", "MainWindow"))
+        MainWindow.setWindowTitle(_translate("MainWindow", "DbtTool"))
         self.MainGameInfo.setText(_translate("MainWindow", "主玩法信息"))
-        self.GameId.setPlaceholderText(_translate("MainWindow", "GameID（选填）"))
-        self.GamePath.setPlaceholderText(_translate("MainWindow", "拖入游戏目录 E:/SVN/byteGo"))
-        self.GamePerson.setPlaceholderText(_translate("MainWindow", "拖入安卓工程 E:/SVN/byteGo/proj.android_studio"))
+        self.GameClassesPath.setPlaceholderText(_translate("MainWindow", "预留项"))
+        self.GameResourcePath.setPlaceholderText(_translate("MainWindow", "预留项"))
+        self.GameMoreGameLayerPath.setPlaceholderText(_translate("MainWindow", "多玩法首页文件夹路径"))
+        self.GamePath.setPlaceholderText(_translate("MainWindow", "拖入游戏目录"))
+        self.GameAndroidPath.setPlaceholderText(_translate("MainWindow", "拖入安卓工程路径"))
         self.pushButton_2.setText(_translate("MainWindow", "查看选中多玩法"))
         self.pushButton.setText(_translate("MainWindow", "生成选中多玩法"))
         self.label.setText(_translate("MainWindow", "多玩法游戏列表"))
+        self.label_2.setText(_translate("MainWindow", "当前选中玩法"))
+        self.label_4.setText(_translate("MainWindow", "Powered By 刘聪"))
 
     def initMainWindow(self):  # 初始化数据和界面
         moreGameExcelManage.initWithPath("./GameList.xlsx")
@@ -155,15 +189,11 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
 
     def updateSelectItems(self):
         selectInfos = moreGameExcelManage.getAllSelectInfos()
-        for node in self.__selectLabels:
-            node.deleteLater()
-        self.__selectLabels.clear()
-
+        labelStr = ""
         for info in selectInfos:
-            labelStr = moreGameExcelManage.getGameNameById(info.InfoGameId) + " 列表序号 " + str(info.InfoIndex)
-            label = QLabel(labelStr, self)
-            self.__selectLabels.append(label)
-            self.showInfosLayout.addWidget(label)
+            labelStr += moreGameExcelManage.getGameNameById(info.InfoGameId) + " 列表序号 " + str(info.InfoIndex) + "\n"
+
+        self.showSelectLabel.setText(labelStr)
 
         pass
 
@@ -172,8 +202,29 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
             QMessageBox.information(self, '提示', '请先查看并确认多玩法信息', QMessageBox.Ok)
             return
 
-        androidPath = self.GamePerson.text()
-        projPath = self.GamePath.text()
+        androidPath = self.GameAndroidPath.text()                   # 安卓工程路径
+        projPath = self.GamePath.text()                             # 游戏目录
+        # codeDirName = self.GameClassesPath.text()                   # 游戏代码目录
+        # gamrResDirName = self.GameResourcePath.text()               # 资源目录
+        gameMoreRedDirName = self.GameMoreGameLayerPath.text()      # 多玩法首页目录
+        # if "" == codeDirName:
+        #     QMessageBox.critical(self, '错误', '代码文件夹未填写', QMessageBox.Ok)
+        #     return
+        # else:
+        #     codeDirName = codeDirName.split("/")[-1]
+        #
+        # if "" == gamrResDirName:
+        #     QMessageBox.critical(self, '错误', '游戏资源文件夹未填写', QMessageBox.Ok)
+        #     return
+        # else:
+        #     gamrResDirName = gamrResDirName.split("/")[-1]
+
+        if "" == gameMoreRedDirName:
+            QMessageBox.critical(self, '错误', '游戏多玩法首页文件夹未填写', QMessageBox.Ok)
+            return
+        else:
+            gameMoreRedDirName = gameMoreRedDirName.split("/")[-1]
+
         if "" == androidPath:
             QMessageBox.critical(self, '错误', '安卓路径未填写', QMessageBox.Ok)
             return
@@ -183,7 +234,7 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 QMessageBox.critical(self, '错误', '安卓目录不存在', QMessageBox.Ok)
                 return
             else:
-                moreGameExcelManage.createAndroidFile(androidPath)
+                moreGameExcelManage.createAndroidFile(androidPath, gameMoreRedDirName)
 
         if "" == projPath:
             QMessageBox.critical(self, '错误', "项目路径未填写", QMessageBox.Ok)
@@ -202,7 +253,8 @@ class Ui_MainWindow(QtWidgets.QMainWindow):
                 QMessageBox.critical(self, '错误', "项目路径不存在Resources", QMessageBox.Ok)
                 return
             else:
-                moreGameExcelManage.addMoreGameToSVN(projPath)
+                tipString = moreGameExcelManage.addMoreGameToSVN(projPath)
+                QMessageBox.information(self, '提示', tipString, QMessageBox.Ok)
 
         moreGameExcelManage.setEnsureInfos(False)
         pass

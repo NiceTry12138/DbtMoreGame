@@ -4,6 +4,7 @@ import OperateSVN
 import os
 from PyQt5.QtCore import QObject
 import PyQt5.QtCore
+import copy
 
 class MoreGameItem():
 
@@ -156,7 +157,7 @@ class MoreGameExcelManage(QObject):
         for index in self.selectGameIndex:
             for info in self.moreGameInfos:
                 if info.InfoIndex == index:
-                    self.__selectInfos.append(info)
+                    self.__selectInfos.append(copy.deepcopy(info))
                     break
 
     def getAllSelectInfos(self):
@@ -176,10 +177,11 @@ class MoreGameExcelManage(QObject):
                 pass
         pass
 
-    def createAndroidFile(self, androidProjPath):
+    def createAndroidFile(self, androidProjPath, gameMoreDirPath):
         selectInfos = self.getAllSelectInfos()
         ###
         resourceDirList = []
+        resourceDirList.append(gameMoreDirPath)
         for info in selectInfos:
             for line in info.InfoGameResourcePath.splitlines():
                 resourceDirList.append(line.split("/")[-1])
@@ -240,7 +242,11 @@ APP_OPTIM := release\n\
         applicationMk += "APP_CPPFLAGS += -DCOCOS2D_316 -DCC_USE_3D=1 -DCC_USE_3D_PHYSICS=1 -DSHOW_MORE_GAME"
 
         for info in selectInfos:
-            applicationMk += " " + info.InfoGameDefine
+            defines = info.InfoGameDefine.split(" ")
+            for define in defines:
+                define = define.strip()
+                if '' != define:
+                    applicationMk += " -D" + info.InfoGameDefine
 
         # print(applicationMk)
 
@@ -275,7 +281,7 @@ APP_OPTIM := release\n\
         for info in selectInfos:
             codeString += info.InfoGameCodePath + "\n"
             resourceString += info.InfoGameResourcePath + "\n"
-        OperateSVN.addPathToSVN(projPath, codeString, resourceString)
+        return OperateSVN.addPathToSVN(projPath, codeString, resourceString)
         pass
 
     def getGameNameById(self, gameId):

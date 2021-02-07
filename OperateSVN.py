@@ -7,6 +7,8 @@ import sys
 # resourceProp = "https://192.168.10.5/svn/pdragon/tetris_redo/Resources/free1010_skin1\nhttps://192.168.10.5/svn/pdragon/tetris_redo/Resources/hexagon_skin1\nhttps://192.168.10.5/svn/pdragon/tetris_redo/Resources/popblock_skin1\nhttps://192.168.10.5/svn/pdragon/tetris_redo/Resources/tetrix_common_skin1"
 
 def addPathToSVN(projPath, addProp, resourceProp):
+    showTipString = "设置成功"
+
     propItems = []
     resourceItems = []
     addProp = addProp.strip()
@@ -29,6 +31,9 @@ def addPathToSVN(projPath, addProp, resourceProp):
     contenxt = codeResult.read()
     resourceResult = os.popen("svn pg svn:externals " + projPath + "/Resources")
     resourceContenxt = resourceResult.read()
+
+    if "不是内部或外部命令" in contenxt or "不是内部或外部命令" in resourceContenxt:
+        showTipString = "未配置SVN命令行工具"
 
     # print(resourceItems)
     # print(propItems)
@@ -91,5 +96,12 @@ def addPathToSVN(projPath, addProp, resourceProp):
         #     os.remove("svnResourceExternalPropList.txt")
         print(result.read())
         print(resourceResult.read())
+
+        if "database is locked" in result.read():
+            showTipString = "请主动SVN或还原SVN外部属性"
+
     else:
         print("error")
+        showTipString = "存在未知错误\n请查看控制台输出"
+
+    return showTipString
