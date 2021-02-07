@@ -170,7 +170,8 @@ class Ui_MainWindow(QWidget):
     def moreGameListClicked(self, qModelIndex):
         if 0 == qModelIndex.row():
             return
-        moreGameExcelManage.setTargetGameId(qModelIndex.row())
+        gameItem = moreGameExcelManage.moreGameItems[qModelIndex.row()]
+        moreGameExcelManage.setTargetGameId(gameItem.GameId)
         # QMessageBox.information(self,'ListWidget','你选择了：'+str(qModelIndex.row()), QMessageBox.Ok)
         gameInfoWidget = GameInfoWidget.MoreGameInfoWidget()
         gameInfoWidget.move(self.MoreGameList.pos())
