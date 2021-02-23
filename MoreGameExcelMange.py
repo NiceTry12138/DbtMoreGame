@@ -23,6 +23,9 @@ class MoreGameItem():
             self.GameId = int(self.GameId)
         pass
 
+    def printInfo(self):
+        print("id {0} 名字 {1} 维护人 {2}".format(self.GameId, self.GameName, self.GameMaintain));
+
     pass
 
 class MoreGameInfo:
@@ -36,6 +39,9 @@ class MoreGameInfo:
         self.InfoGameVariate = ""           # 游戏变量
         self.InfoIntroduce = ""             # 描述
         pass
+
+    def printInfo(self):
+        print("index {0} id {1}".format(self.InfoIndex, self.InfoGameId))
 
     def judgeSelf(self):
         if '.' in str(self.InfoGameId):
@@ -84,7 +90,7 @@ class MoreGameExcelManage(QObject):
     #   0     1   2
     # 游戏ID 游戏名 维护人
     def __readMoreGameItem(self):
-        itemSheet = self.wb.sheet_by_index(0)
+        itemSheet = self.wb.sheet_by_index(1)
         rowNum = itemSheet.nrows
         for row in range(rowNum):
             item = MoreGameItem()
@@ -93,13 +99,14 @@ class MoreGameExcelManage(QObject):
             item.GameMaintain = itemSheet.cell(row, 2).value
             item.judgeSelf()
             self.moreGameItems.append(item)
+            # item.printInfo()
             pass
         pass
 
     #   0   1   2   3   4   5   6
     #序号 游戏ID 宏 代码 资源 变量 描述
     def __readMoreGameInfo(self):
-        infoSheet = self.wb.sheet_by_index(1)
+        infoSheet = self.wb.sheet_by_index(0)
         rowNum = infoSheet.nrows
         for row in range(rowNum):
             info = MoreGameInfo()
@@ -112,6 +119,7 @@ class MoreGameExcelManage(QObject):
             info.InfoIntroduce = infoSheet.cell(row, 6).value
             info.judgeSelf()
             self.moreGameInfos.append(info)
+            # print("index = {0} id = {1} row = {2} ".format(infoSheet.cell(row, 0).value, infoSheet.cell(row, 1).value, row))
             pass
         pass
 

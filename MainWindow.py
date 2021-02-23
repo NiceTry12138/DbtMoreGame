@@ -148,7 +148,7 @@ class Ui_MainWindow(QWidget):
         self.label_4.setText(_translate("MainWindow", "Powered By 刘聪"))
 
     def initMainWindow(self):  # 初始化数据和界面
-        moreGameExcelManage.initWithPath("./GameList.xlsx")
+        moreGameExcelManage.initWithPath("./GameList .xlsx")
         self.__selectLabels = []
         listModel = QStandardItemModel()
         for gameItem in moreGameExcelManage.moreGameItems:

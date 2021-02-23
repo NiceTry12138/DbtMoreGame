@@ -55,8 +55,8 @@ class InfoWidgetItem(QWidget):
         layout.addWidget(self.InfoGameCodePathLine, 3, 1, 4, 2)
         layout.addWidget(QLabel("资源路径"), 7, 0)
         layout.addWidget(self.InfoGameResourcePathLine, 7, 1, 4, 2)
-        layout.addWidget(QLabel("操作按钮"), 11, 0)
-        layout.addWidget(self.addBtn, 11, 1)
+        layout.addWidget(QLabel("操作按钮"), 3, 3)
+        layout.addWidget(self.addBtn, 4, 3, 4, 4)
 
         self.setLayout(layout)
 
